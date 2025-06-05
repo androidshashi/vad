@@ -1,8 +1,7 @@
-from core.vad_processor import run_vad_on_file
+from recorder import record_audio
+from transcriber import transcribe_audio
 
 if __name__ == "__main__":
-    audio_path = "data/sample.wav"
-    output_path = "output/vad_segments.json"
-
-    run_vad_on_file(audio_path, output_path)
-    print(f"VAD processing complete. Results saved to {output_path}")
+    audio_file = record_audio()
+    transcription = transcribe_audio(audio_file)
+    print("\n[RESULT] Final Transcription:\n", transcription)
